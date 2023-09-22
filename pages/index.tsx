@@ -68,7 +68,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
                 height={480}
                 sizes="(max-width: 640px) 100vw,
                   (max-width: 1280px) 50vw,
-                  (max-width: 1536px) 33vw,
+                  (max-width: 1536px) 25vw,
                   25vw"
               />
             </Link>
