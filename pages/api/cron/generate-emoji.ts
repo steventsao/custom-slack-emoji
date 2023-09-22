@@ -27,8 +27,18 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
     }
   );
   const imageUrl = output[0];
+  const backgroundRemovedImageUrl = (await replicate.run(
+    "cjwbw/rembg:fb8af171cfa1616ddcf1242c093f9c46bcada5ad4cf6f2fbe8b81b330ec5c003",
+    {
+      input: {
+        image: output[0],
+      },
+    }
+  )) as unknown as string;
   const result = await cloudinary.v2.uploader
-    .upload(output[0], { folder: process.env.CLOUDINARY_FOLDER })
+    .upload(backgroundRemovedImageUrl, {
+      folder: process.env.CLOUDINARY_FOLDER,
+    })
     .then((result) => result)
     .catch((err) => console.log(err));
   return res.status(200).send({
@@ -36,5 +46,6 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
     output,
     prompt,
     imageUrl,
+    noBg: backgroundRemovedImageUrl,
   });
 }
