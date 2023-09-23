@@ -10,6 +10,8 @@ const prisma = new PrismaClient();
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
+const replicateModel =
+  "fofr/sdxl-emoji:dee76b5afde21b0f01ed7925f0665b7e879c50ee718c5f78a9d38e04d523cc5e";
 
 // Disabled because cloudinary access process.env
 // export const config = {
@@ -20,16 +22,18 @@ const replicate = new Replicate({
 // Get links from first page
 // Saves to Prisma db
 export default async function handler(req: NextRequest, res: NextApiResponse) {
+  const llmModel = await prisma.lLMModel.findFirst({
+    where: {
+      name: replicateModel,
+    },
+  });
   const randomAdjectiveWithNoun = getRandomAdjectiveWithNoun();
   const prompt = `A TOK emoji of a ${randomAdjectiveWithNoun}`;
-  const output = await replicate.run(
-    "fofr/sdxl-emoji:dee76b5afde21b0f01ed7925f0665b7e879c50ee718c5f78a9d38e04d523cc5e",
-    {
-      input: {
-        prompt,
-      },
-    }
-  );
+  const output = await replicate.run(replicateModel, {
+    input: {
+      prompt,
+    },
+  });
   const imageUrl = output[0];
   const backgroundRemovedImageUrl = (await replicate.run(
     "cjwbw/rembg:fb8af171cfa1616ddcf1242c093f9c46bcada5ad4cf6f2fbe8b81b330ec5c003",
@@ -48,6 +52,11 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
   await prisma.prompt.create({
     data: {
       name: prompt,
+      model: {
+        connect: {
+          id: llmModel.id,
+        },
+      },
       stickers: {
         create: {
           imageUrl: backgroundRemovedImageUrl,
