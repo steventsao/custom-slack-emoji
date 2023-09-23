@@ -115,7 +115,7 @@ export async function getServerSideProps() {
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
   // generate random number from -20 to 20
   for (let i = 0; i < reducedResults.length; i++) {
-    const randomRotation = Math.floor(Math.random() * 40) - 20;
+    const randomRotation = Math.floor(Math.random() * 20) - 10;
     reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
     reducedResults[i].rotation = randomRotation;
   }
