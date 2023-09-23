@@ -47,7 +47,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             }}
           />
         )}
-        <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
+        <div className="columns-2 gap-4 sm:columns-3 xl:columns-4 2xl:columns-6">
           {images.map(({ id, public_id, format, blurDataUrl }) => (
             // <Link
             //   key={id}
@@ -70,10 +70,10 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/t_sticker-outline/${public_id}.${format}`}
               width={720}
               height={480}
-              sizes="(max-width: 640px) ,
-                  (max-width: 1280px) 50vw,
-                  (max-width: 1536px) 25vw,
-                  25vw"
+              sizes="(max-width: 640px) 50vw,
+                  (max-width: 1280px) 25vw,
+                  (max-width: 1536px) 10vw,
+                  5vw"
             />
             // </Link>
           ))}
@@ -93,7 +93,7 @@ export async function getServerSideProps() {
   const results = await cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
     .sort_by("public_id", "asc")
-    .max_results(100)
+    .max_results(200)
     .execute();
   let reducedResults: ImageProps[] = [];
 
