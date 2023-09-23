@@ -37,7 +37,6 @@ model Prompt {
     id          Int        @id @default(autoincrement())
     name        String?
     description String?
-    modelId     Int
     model       LLMModel[]
 
     // userId      Int

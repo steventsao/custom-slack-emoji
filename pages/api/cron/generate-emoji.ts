@@ -4,6 +4,11 @@ import { createCanvas, loadImage } from "canvas";
 import { NextRequest, NextResponse } from "next/server";
 import { NextApiResponse } from "next";
 import Replicate from "replicate";
+import { sql } from "@vercel/postgres";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
 });
@@ -42,6 +47,21 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
     })
     .then((result) => result)
     .catch((err) => console.log(err));
+  await prisma.prompt.create({
+    data: {
+      name: prompt,
+      stickers: {
+        create: {
+          imageUrl: backgroundRemovedImageUrl,
+        },
+      },
+    },
+  });
+
+  //   const promptId = await sql`INSERT INTO "Prompt" (name) VALUES (${prompt})`;
+  //   console.log(promptId, "PROMPT ID");
+  //   await sql`INSERT INTO "Sticker" ("imageUrl") VALUES (${backgroundRemovedImageUrl})`;
+
   return res.status(200).send({
     message: randomAdjectiveWithNoun,
     output,
