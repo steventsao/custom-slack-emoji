@@ -67,7 +67,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               }}
               placeholder="blur"
               blurDataURL={blurDataUrl}
-              src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/t_sticker-outline/${public_id}.${format}`}
+              src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_360/t_sticker-outline/${public_id}.${format}`}
               width={720}
               height={480}
               sizes="(max-width: 640px) 50vw,
