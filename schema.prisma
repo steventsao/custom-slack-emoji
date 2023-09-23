@@ -18,6 +18,33 @@ model Sticker {
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
     labels      Label[]
+    prompt      Prompt?  @relation(fields: [promptId], references: [id])
+    promptId    Int?
+}
+
+model LLMModel {
+    id          Int      @id @default(autoincrement())
+    name        String?
+    description String?
+    // userId      Int
+    // user        User    @relation(fields: [userId], references: [id])
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    prompts     Prompt[]
+}
+
+model Prompt {
+    id          Int        @id @default(autoincrement())
+    name        String?
+    description String?
+    modelId     Int
+    model       LLMModel[]
+
+    // userId      Int
+    // user        User    @relation(fields: [userId], references: [id])
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    stickers  Sticker[]
 }
 
 model Label {
