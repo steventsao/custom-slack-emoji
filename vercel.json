@@ -3,6 +3,10 @@
     {
       "path": "/api/cron/generate-emoji",
       "schedule": "*/10 * * * *"
+    },
+    {
+      "path": "/api/cron/generate-animal",
+      "schedule": "*/10 * * * *"
     }
   ]
 }
