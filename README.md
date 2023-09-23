@@ -30,3 +30,56 @@ pnpm create next-app --example with-cloudinary nextjs-image-gallery
 
 - Cloudinary API: https://cloudinary.com/documentation/transformation_reference
 - https://github.com/danielgatis/rembg
+
+## Keywords
+
+cute stickers
+free stickers
+sticker ideas
+cool stickers
+nail printer
+sticker design
+yoto cards
+printable sticker paper
+cool sticker
+printable stickers
+cute sticker ideas
+how to make homemade stickers
+happy planner stickers
+design stickers
+yoto box
+sticker designs
+sticker mockup
+yoto discount code
+slay wallpapers
+smile makers stickers
+sticker templates
+design a sticker
+flower decals
+car decal ideas
+round labels
+sticker designer
+holographic heart phone case
+nail stencils
+design your own stickers
+kidslovestickers
+nail printer machine
+award decals
+sticker template
+i did this sticker
+black and white stickers
+jordan stickers
+unique hype
+stained glass sticker
+good job sticker
+good vibes only wallpaper
+pink stickers
+motivational stickers
+retro nails
+slay ready cosmetics
+stained glass stickers
+canva stickers
+yoto make your own cards
+adventure life decals
+what to do with stickers
+cute basic nails
