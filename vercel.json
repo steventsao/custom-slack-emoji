@@ -1,12 +1,8 @@
 {
   "crons": [
     {
-      "path": "/api/cron/generate-emoji",
-      "schedule": "*/15 * * * *"
-    },
-    {
       "path": "/api/cron/generate-desi",
-      "schedule": "*/15 * * * *"
+      "schedule": "*/5 * * * *"
     },
     {
       "path": "/api/cron/generate-animal",
