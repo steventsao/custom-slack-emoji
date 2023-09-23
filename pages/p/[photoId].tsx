@@ -42,7 +42,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       width: result.width,
       public_id: result.public_id,
       format: result.format,
-      rotation: 0,
     });
     i++;
   }

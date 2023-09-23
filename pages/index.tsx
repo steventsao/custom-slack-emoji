@@ -48,7 +48,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
           />
         )}
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
-          {images.map(({ id, public_id, format, blurDataUrl, rotation }) => (
+          {images.map(({ id, public_id, format, blurDataUrl }) => (
             // <Link
             //   key={id}
             //   href={`/?photoId=${id}`}
@@ -63,7 +63,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               alt="sticker photo"
               className="transform rounded-lg transition will-change-auto group-hover:brightness-110"
               style={{
-                transform: `translate3d(0, 0, 0) rotate(${rotation}deg)`,
+                transform: `translate3d(0, 0, 0)`,
               }}
               placeholder="blur"
               blurDataURL={blurDataUrl}
@@ -104,7 +104,6 @@ export async function getServerSideProps() {
       width: result.width,
       public_id: result.public_id,
       format: result.format,
-      rotation: 0,
     });
     i++;
   }
@@ -115,9 +114,10 @@ export async function getServerSideProps() {
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
   // generate random number from -20 to 20
   for (let i = 0; i < reducedResults.length; i++) {
-    const randomRotation = Math.floor(Math.random() * 20) - 10;
+    // const randomRotation = Math.floor(Math.random() * 20) - 10;
     reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
-    reducedResults[i].rotation = randomRotation;
+    // Rotation can hurt caching
+    // reducedResults[i].rotation = randomRotation;
   }
 
   return {
