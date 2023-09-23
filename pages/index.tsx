@@ -48,7 +48,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
           />
         )}
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
-          {images.map(({ id, public_id, format, blurDataUrl }) => (
+          {images.map(({ id, public_id, format, blurDataUrl, rotation }) => (
             // <Link
             //   key={id}
             //   href={`/?photoId=${id}`}
@@ -57,10 +57,14 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             //   shallow
             //   className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             // >
+
             <Image
+              key={id}
               alt="sticker photo"
               className="transform rounded-lg transition will-change-auto group-hover:brightness-110"
-              style={{ transform: "translate3d(0, 0, 0)" }}
+              style={{
+                transform: `translate3d(0, 0, 0) rotate(${rotation}deg)`,
+              }}
               placeholder="blur"
               blurDataURL={blurDataUrl}
               src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/t_sticker-outline/${public_id}.${format}`}
@@ -100,6 +104,7 @@ export async function getServerSideProps() {
       width: result.width,
       public_id: result.public_id,
       format: result.format,
+      rotation: 0,
     });
     i++;
   }
@@ -108,9 +113,11 @@ export async function getServerSideProps() {
     return getBase64ImageUrl(image);
   });
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
-
+  // generate random number from -20 to 20
   for (let i = 0; i < reducedResults.length; i++) {
+    const randomRotation = Math.floor(Math.random() * 40) - 20;
     reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
+    reducedResults[i].rotation = randomRotation;
   }
 
   return {
