@@ -8,7 +8,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 const replicate = new Replicate({
-  auth: process.env.REPLICATE_API_TOKEN,
+  auth: process.env.REPLICATE_API_TOKEN || "",
 });
 const replicateModel =
   "vikrum/desi-truck-style:cd7103037b8315b689487bb81dcf3f71a36e2607c6dd116b11bb5b47e8b7bfd8";
