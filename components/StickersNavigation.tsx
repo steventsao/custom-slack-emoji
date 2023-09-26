@@ -15,7 +15,7 @@ export default function StickersNavigation({
         href={{ pathname: "/" }}
       >
         <button type="button" data-te-ripple-init data-te-ripple-color="light">
-          1
+          Home
         </button>
       </Link>
       {nextCursor && (
