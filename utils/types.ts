@@ -8,6 +8,11 @@ export interface ImageProps {
   blurDataUrl?: string;
 }
 
+export interface StickersResponse {
+  images: ImageProps[];
+  nextCursor: string;
+}
+
 export interface SharedModalProps {
   index: number;
   images?: ImageProps[];
