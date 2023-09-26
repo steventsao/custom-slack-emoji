@@ -1,10 +1,6 @@
 import Link from "next/link";
 
-export default function StickersNavigation({
-  nextCursor,
-}: {
-  nextCursor?: string;
-}) {
+export function StickersNavigation({ nextCursor }: { nextCursor?: string }) {
   return (
     <div
       className="text-bold flex justify-center gap-x-2 rounded-md font-sans text-lg "

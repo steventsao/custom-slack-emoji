@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ImageProps, StickersResponse } from "../utils/types";
 
-export default function Gallery({ images }: { images: ImageProps[] }) {
+export function Gallery({ images }: { images: ImageProps[] }) {
   return (
     <div className="columns-2 gap-4 sm:columns-3 xl:columns-4 2xl:columns-6">
       {images.map(({ id, public_id, format, blurDataUrl }) => (

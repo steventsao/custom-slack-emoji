@@ -3,8 +3,8 @@ import getBase64ImageUrl from "../utils/generateBlurPlaceholder";
 import type { ImageProps, StickersResponse } from "../utils/types";
 import { Suspense } from "react";
 import { Metadata } from "next";
-import Gallery from "../components/Gallery";
-import StickersNavigation from "../components/StickersNavigation";
+import { Gallery } from "@/components/Gallery";
+import { StickersNavigation } from "@/components/StickersNavigation";
 
 async function getStickers(nextCursor?: string): Promise<StickersResponse> {
   // TODO still need to implement infinite scrolling using next_cursor https://support.cloudinary.com/hc/en-us/community/posts/360008223779-How-to-use-next-cursor-to-get-the-rest-of-the-files-in-a-specific-folder-
