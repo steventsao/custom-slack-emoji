@@ -2,9 +2,6 @@ import cloudinary from "../utils/cloudinary";
 import getBase64ImageUrl from "../utils/generateBlurPlaceholder";
 import type { ImageProps, StickersResponse } from "../utils/types";
 import { Suspense } from "react";
-
-import Link from "next/link";
-
 import { Metadata } from "next";
 import Gallery from "../components/Gallery";
 import StickersNavigation from "../components/StickersNavigation";
@@ -57,7 +54,6 @@ export default async function Page({ params, searchParams }) {
   // @ts-ignore
   const maybeNextCursor = searchParams?.nextCursor;
   const { images, nextCursor } = await getStickers(maybeNextCursor);
-  console.log({ nextCursor });
   return (
     <>
       <main className="mx-auto max-w-[1960px] p-4">
