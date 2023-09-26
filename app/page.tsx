@@ -10,7 +10,7 @@ async function getStickers(): Promise<ImageProps[]> {
   const results = await cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
     .sort_by("public_id", "desc")
-    .max_results(200)
+    .max_results(300)
     .execute();
   let reducedResults: ImageProps[] = [];
 
