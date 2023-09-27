@@ -2,11 +2,11 @@
   "crons": [
     {
       "path": "/api/cron/generate-desi",
-      "schedule": "15 * * * *"
+      "schedule": "* * * * 5"
     },
     {
       "path": "/api/cron/generate-animal",
-      "schedule": "15 * * * *"
+      "schedule": "* * * * 5"
     }
   ]
 }

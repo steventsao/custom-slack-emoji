@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Gallery } from "@/components/Gallery";
 import { sql } from "@vercel/postgres";
 import { PrismaClient } from "@prisma/client";
@@ -45,7 +46,7 @@ export default async function Page({ params }) {
   console.log(themeStickers);
   if (themeStickers === null) {
     // TODO how to use file convention https://nextjs.org/docs/app/api-reference/file-conventions/not-found
-    return <div>not found</div>;
+    notFound();
   }
   return (
     <div>
