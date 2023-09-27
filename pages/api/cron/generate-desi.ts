@@ -53,7 +53,7 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
   )) as unknown as string;
   const result = await cloudinary.v2.uploader
     .upload(backgroundRemovedImageUrl, {
-      folder: process.env.CLOUDINARY_FOLDER,
+      folder: `${process.env.CLOUDINARY_FOLDER}/desi`,
     })
     .then((result) => result)
     .catch((err) => console.log(err));
