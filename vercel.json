@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/cron/generate-desi",
-      "schedule": "* * * * *"
+      "schedule": "10 * * * *"
     }
   ]
 }
