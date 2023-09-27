@@ -8,6 +8,12 @@ generator client {
     provider = "prisma-client-js"
 }
 
+model Theme {
+    id       Int       @id @default(autoincrement())
+    name     String
+    llmModel LLMModel?
+}
+
 model Sticker {
     id          Int      @id @default(autoincrement())
     name        String?
@@ -26,6 +32,8 @@ model LLMModel {
     id          Int      @id @default(autoincrement())
     name        String?
     description String?
+    theme       Theme?   @relation(fields: [themeId], references: [id])
+    themeId     Int?     @unique
     // userId      Int
     // user        User    @relation(fields: [userId], references: [id])
     createdAt   DateTime @default(now())

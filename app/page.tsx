@@ -56,15 +56,10 @@ export default async function Page({ params, searchParams }) {
   const { images, nextCursor } = await getStickers(maybeNextCursor);
   return (
     <>
-      <main className="mx-auto max-w-[1960px] p-4">
-        <Suspense fallback={<p>Loading stickers...</p>}>
-          <Gallery images={images} />
-        </Suspense>
-        <StickersNavigation nextCursor={nextCursor} />
-      </main>
-      <footer className="p-6 text-center text-white/80 sm:p-12">
-        stickerideas.co
-      </footer>
+      <Suspense fallback={<p>Loading stickers...</p>}>
+        <Gallery images={images} />
+      </Suspense>
+      <StickersNavigation nextCursor={nextCursor} />
     </>
   );
 }

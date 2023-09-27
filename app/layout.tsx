@@ -28,7 +28,10 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-amber-50 antialiased">
-        {children}
+        <main className="mx-auto max-w-[1960px] p-4">{children}</main>
+        <footer className="p-6 text-center text-white/80 sm:p-12">
+          stickerideas.co
+        </footer>
         <Analytics />
       </body>
     </html>
