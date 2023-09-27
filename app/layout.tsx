@@ -1,5 +1,15 @@
 import "../styles/index.css";
 import { Analytics } from "@vercel/analytics/react";
+import ListItem from "@/components/ListItem";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuContent,
+  NavigationMenuTrigger,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+import Link from "next/link";
 
 export default function RootLayout({
   children,
@@ -28,10 +38,33 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-amber-50 antialiased">
+        <NavigationMenu className="mx-5">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <Link href="/" legacyBehavior passHref>
+                <NavigationMenuLink className="text-lg">
+                  Home
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/themes/emoji" legacyBehavior passHref>
+                <NavigationMenuLink className="text-lg">
+                  Emoji
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/themes/desi" legacyBehavior passHref>
+                <NavigationMenuLink className="text-lg">
+                  Desi
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         <main className="mx-auto max-w-[1960px] p-4">{children}</main>
-        <footer className="p-6 text-center text-white/80 sm:p-12">
-          stickerideas.co
-        </footer>
+        <footer className="p-6 text-center sm:p-12">stickerideas.co</footer>
         <Analytics />
       </body>
     </html>
