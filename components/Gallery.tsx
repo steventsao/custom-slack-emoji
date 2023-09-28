@@ -14,6 +14,8 @@ export function Gallery({ images }: { images: ImageProps[] }) {
         //   className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
         // >
 
+        // TODO add border with
+        //   src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_360/t_sticker-outline/${public_id}.${format}`}
         <Image
           key={id}
           alt="sticker photo"
@@ -23,7 +25,7 @@ export function Gallery({ images }: { images: ImageProps[] }) {
           }}
           placeholder="blur"
           blurDataURL={blurDataUrl}
-          src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_360/t_sticker-outline/${public_id}.${format}`}
+          src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_360/${public_id}.${format}`}
           width={720}
           height={480}
           sizes="(max-width: 640px) 50vw,
