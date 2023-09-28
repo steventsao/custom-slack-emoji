@@ -20,14 +20,13 @@ const navigationItems = [
     path: "/themes/dog",
     title: "#dog",
   },
-
+  {
+    path: "/themes/desi",
+    title: "#desitruck",
+  },
   {
     path: "/themes/emoji",
     title: "#emoji",
-  },
-  {
-    path: "/themes/desi",
-    title: "#desi",
   },
 ];
 export default function RootLayout({
