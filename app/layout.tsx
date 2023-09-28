@@ -38,25 +38,25 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-amber-50 antialiased">
-        <NavigationMenu className="mx-5">
+        <NavigationMenu className="mx-5 font-bold">
           <NavigationMenuList>
             <NavigationMenuItem>
               <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className="text-lg">
+                <NavigationMenuLink className="text-xl">
                   Home
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/themes/emoji" legacyBehavior passHref>
-                <NavigationMenuLink className="text-lg">
+                <NavigationMenuLink className="text-xl">
                   Emoji
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/themes/desi" legacyBehavior passHref>
-                <NavigationMenuLink className="text-lg">
+                <NavigationMenuLink className="text-xl">
                   Desi
                 </NavigationMenuLink>
               </Link>

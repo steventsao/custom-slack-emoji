@@ -75,7 +75,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const themeStickers = await getThemeStickers(params.slug);
   //   const images = await getThemeStickers();
-  console.log(themeStickers);
+  //   console.log(themeStickers);
   if (!themeStickers.images.length) {
     // TODO how to use file convention https://nextjs.org/docs/app/api-reference/file-conventions/not-found
     notFound();
