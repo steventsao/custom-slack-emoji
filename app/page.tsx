@@ -59,7 +59,7 @@ export default async function Page({ params, searchParams }) {
       <Suspense fallback={<p>Loading stickers...</p>}>
         <Gallery images={images} />
       </Suspense>
-      <StickersNavigation nextCursor={nextCursor} />
+      {/* <StickersNavigation nextCursor={nextCursor} /> */}
     </>
   );
 }
