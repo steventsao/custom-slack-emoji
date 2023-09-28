@@ -8,6 +8,9 @@ import getBase64ImageUrl from "../../../utils/generateBlurPlaceholder";
 
 const prisma = new PrismaClient();
 
+// TODO dynamically import theh description of a slug?
+// https://github.com/vercel/next.js/discussions/11291#discussioncomment-4303
+
 async function getThemeStickers(slug: string) {
   // Theme using related LLMModel
   const results = await cloudinary.v2.search
