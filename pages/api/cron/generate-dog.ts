@@ -45,6 +45,7 @@ export default async function handler(req: NextRequest, res) {
     // remove background in replicate
     // upload to cloudinary
     // save to prisma
+    // add theme to db
     assert(image_url, "image_url is undefined");
 
     const uploadUrl = await getUrlForImageWithoutBackground(image_url);

@@ -11,6 +11,25 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
+const navigationItems = [
+  {
+    path: "/",
+    title: "Home",
+  },
+  {
+    path: "/themes/dog",
+    title: "Dog",
+  },
+
+  {
+    path: "/themes/emoji",
+    title: "Emoji",
+  },
+  {
+    path: "/themes/desi",
+    title: "Desi",
+  },
+];
 export default function RootLayout({
   children,
 }: {
@@ -40,27 +59,15 @@ export default function RootLayout({
       <body className="bg-amber-50 antialiased">
         <NavigationMenu className="mx-5 font-bold">
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className="text-xl">
-                  Home
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/themes/emoji" legacyBehavior passHref>
-                <NavigationMenuLink className="text-xl">
-                  Emoji
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/themes/desi" legacyBehavior passHref>
-                <NavigationMenuLink className="text-xl">
-                  Desi
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+            {navigationItems.map((item, key) => (
+              <NavigationMenuItem key={key}>
+                <Link href={item.path} legacyBehavior passHref>
+                  <NavigationMenuLink className="text-xl">
+                    {item.title}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
         <main className="mx-auto max-w-[1960px] p-4">{children}</main>

@@ -6,7 +6,7 @@
     },
     {
       "path": "/api/cron/generate-dog",
-      "schedule": "* * * * *"
+      "schedule": "*/6 * * * *"
     }
   ]
 }
