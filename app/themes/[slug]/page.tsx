@@ -12,7 +12,7 @@ async function getThemeStickers(slug: string) {
   // Theme using related LLMModel
   const results = await cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/${slug}/*`)
-    .sort_by("public_id", "desc")
+    .sort_by("created_at", "desc")
     .max_results(100)
     .execute();
   //   const themeStickers = await prisma.theme.findFirst({
