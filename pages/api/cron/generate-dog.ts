@@ -34,6 +34,7 @@ export default async function handler(req: NextRequest, res) {
   const dogBreed = getRandomDogBreed();
   const template = `a portrait of a ${dogBreed} dog in a white background`;
   try {
+    // Doesn't generate quality images
     const response = await openai.images.generate({
       prompt: template,
       n: 1,
