@@ -60,17 +60,17 @@ async function getThemeStickers(slug: string) {
   return { images: reducedResults, nextCursor: results.next_cursor };
 }
 
-export async function generateStaticParams() {
-  const themes =
-    await sql`select "Theme".name from "Theme" inner join "LLMModel" on "LLMModel"."themeId" = "Theme".id`;
-  //   console.log(themes);
-  const slugs = themes.rows.map((theme) => theme.name);
+// export async function generateStaticParams() {
+//   const themes =
+//     await sql`select "Theme".name from "Theme" inner join "LLMModel" on "LLMModel"."themeId" = "Theme".id`;
+//   //   console.log(themes);
+//   const slugs = themes.rows.map((theme) => theme.name);
 
-  //   TODO does this help with sitemap?
-  return slugs.map((slug) => ({
-    slug,
-  }));
-}
+//   //   TODO does this help with sitemap?
+//   return slugs.map((slug) => ({
+//     slug,
+//   }));
+// }
 
 export default async function Page({ params }) {
   const themeStickers = await getThemeStickers(params.slug);
