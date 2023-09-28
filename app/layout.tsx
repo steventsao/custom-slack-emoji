@@ -18,16 +18,16 @@ const navigationItems = [
   },
   {
     path: "/themes/dog",
-    title: "Dog",
+    title: "#dog",
   },
 
   {
     path: "/themes/emoji",
-    title: "Emoji",
+    title: "#emoji",
   },
   {
     path: "/themes/desi",
-    title: "Desi",
+    title: "#desi",
   },
 ];
 export default function RootLayout({
