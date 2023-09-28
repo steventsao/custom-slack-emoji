@@ -76,7 +76,7 @@ export default async function Page({ params }) {
   const themeStickers = await getThemeStickers(params.slug);
   //   const images = await getThemeStickers();
   console.log(themeStickers);
-  if (themeStickers === null) {
+  if (!themeStickers.images.length) {
     // TODO how to use file convention https://nextjs.org/docs/app/api-reference/file-conventions/not-found
     notFound();
   }
