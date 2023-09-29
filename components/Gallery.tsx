@@ -1,7 +1,13 @@
+"use client";
 import Image from "next/image";
 import type { ImageProps, StickersResponse } from "../utils/types";
+import { useState } from "react";
 
 export function Gallery({ images }: { images: ImageProps[] }) {
+  const [mask, setMask] = useState(false);
+  const toggleMask = () => {
+    setMask(!mask);
+  };
   return (
     <div className="columns-2 gap-4 sm:columns-3 xl:columns-4 2xl:columns-6">
       {images.map(({ id, public_id, format, blurDataUrl }) => (
@@ -17,6 +23,7 @@ export function Gallery({ images }: { images: ImageProps[] }) {
         // TODO add border with
         //   src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_360/t_sticker-outline/${public_id}.${format}`}
         <Image
+          onClick={() => toggleMask()}
           key={id}
           alt="sticker photo"
           className="transform rounded-lg transition will-change-auto group-hover:brightness-110"
@@ -25,7 +32,11 @@ export function Gallery({ images }: { images: ImageProps[] }) {
           }}
           placeholder="blur"
           blurDataURL={blurDataUrl}
-          src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_360/${public_id}.${format}`}
+          src={`https://res.cloudinary.com/${
+            process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+          }/image/upload/${
+            mask ? "e_mask/" : ""
+          }c_scale,w_360/${public_id}.${format}`}
           width={720}
           height={480}
           sizes="(max-width: 640px) 50vw,
