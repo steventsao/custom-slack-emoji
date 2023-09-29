@@ -39,6 +39,11 @@ export function Gallery({ images }: { images: ImageProps[] }) {
         ))}
       </div>
       <div className="fixed bottom-0 left-0 right-0 mx-0 flex w-full flex-wrap rounded-t-lg bg-yellow-200 p-2">
+        {selectedStickers.length === 0 && (
+          <p className="align-center flex w-full justify-center text-center">
+            Tap a sticker to start building your sheet!
+          </p>
+        )}
         {selectedStickers.map((stickerAction) => (
           <Image
             key={stickerAction.public_id}
@@ -56,6 +61,13 @@ export function Gallery({ images }: { images: ImageProps[] }) {
             sizes="(max-width: 640px) 50vw"
           />
         ))}
+        {selectedStickers.length ? (
+          <div className="flex w-full justify-center">
+            <button className="btn bg-sky-500 text-white hover:ring">
+              Design layout
+            </button>
+          </div>
+        ) : null}
       </div>
     </>
   );
