@@ -8,6 +8,16 @@ export interface ImageProps {
   blurDataUrl?: string;
 }
 
+export interface StickerProps {
+  public_id: string;
+  format: string;
+  blurDataUrl: string;
+  onStickerToggle: (stickerAction: StickerAction) => void;
+}
+export type StickerAction = {
+  imageUrl: string;
+  public_id: string;
+};
 export interface StickersResponse {
   images: ImageProps[];
   nextCursor: string;
