@@ -63,7 +63,7 @@ export function Gallery({ images }: { images: ImageProps[] }) {
         ))}
         {selectedStickers.length ? (
           <div className="flex w-full justify-center">
-            <button className="btn bg-sky-500 text-white hover:ring">
+            <button className="btn bg-sky-500 px-3 py-1 text-white hover:bg-sky-400">
               Design layout
             </button>
           </div>
