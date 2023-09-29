@@ -38,7 +38,7 @@ export function Gallery({ images }: { images: ImageProps[] }) {
           // </Link>
         ))}
       </div>
-      <div className="bottom-bar_toolbarWrapper__v1NnX fixed bottom-0 left-0 right-0 mx-0 flex w-full flex-wrap rounded-lg bg-yellow-200 p-2">
+      <div className="fixed bottom-0 left-0 right-0 mx-0 flex w-full flex-wrap rounded-t-lg bg-yellow-200 p-2">
         {selectedStickers.map((stickerAction) => (
           <Image
             key={stickerAction.public_id}
