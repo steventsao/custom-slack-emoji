@@ -19,7 +19,11 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
   // }, [formState]);
 
   return (
-    <form className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg">
+    <form
+      method="POST"
+      action="https://stickerideas.co/api/prompt"
+      className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg"
+    >
       <input
         defaultValue={initialPrompt}
         type="text"
