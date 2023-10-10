@@ -5,9 +5,12 @@ import { useEffect, useRef, useState } from "react";
 interface EmojiFormProps {
   initialPrompt?: string;
 }
-
+const formAction = (...args) => {
+  console.log(args);
+};
 export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
   // const [formState, formAction] = useFormState(createEmoji);
+
   const submitRef = useRef<React.ElementRef<"button">>(null);
   const [token, setToken] = useState("");
 
@@ -16,10 +19,7 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
   // }, [formState]);
 
   return (
-    <form
-      // action={formAction}
-      className="mb-10 flex h-fit w-full flex-row items-center rounded-xl bg-black px-1 shadow-lg"
-    >
+    <form className="mb-10 flex h-fit w-full flex-row items-center rounded-xl bg-black px-1 shadow-lg">
       <input
         defaultValue={initialPrompt}
         type="text"
@@ -35,7 +35,7 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
       />
       <input
         aria-hidden
-        type="text"
+        type="submit"
         name="token"
         value={token}
         className="hidden"
