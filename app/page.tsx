@@ -24,8 +24,8 @@ async function getStickers(nextCursor?: string): Promise<StickersResponse> {
   for (let result of results.resources) {
     reducedResults.push({
       id: i,
-      height: result.height,
-      width: result.width,
+      height: "32",
+      width: "32",
       public_id: result.public_id,
       format: result.format,
     });

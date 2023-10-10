@@ -1,5 +1,7 @@
 "use client";
 import type { ImageProps, StickersResponse } from "../utils/types";
+import { Cloudinary } from "@cloudinary/url-gen";
+
 import Sticker from "@/components/Sticker";
 import type { StickerAction } from "utils/types";
 import { useState } from "react";
