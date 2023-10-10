@@ -1,4 +1,7 @@
 import "../styles/index.css";
+import { Suspense } from "react";
+import { getStickers } from "utils/getStickers";
+import { Gallery } from "@/components/Gallery";
 import { Analytics } from "@vercel/analytics/react";
 import Image from "next/image";
 import ListItem from "@/components/ListItem";
@@ -30,11 +33,12 @@ const navigationItems = [
     title: "#emoji",
   },
 ];
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { images, nextCursor } = await getStickers();
   return (
     <html lang="en">
       <head>
@@ -62,7 +66,12 @@ export default function RootLayout({
           sticker ideas
         </header>
 
-        <main className="mx-auto w-full max-w-5xl p-4">{children}</main>
+        <main className="mx-auto w-full max-w-5xl p-4">
+          {children}
+          <Suspense>
+            <Gallery images={images} />
+          </Suspense>
+        </main>
         <footer className="p-6 text-center sm:p-12">stickerideas.co</footer>
         <Analytics />
       </body>

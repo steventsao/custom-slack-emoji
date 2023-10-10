@@ -5,23 +5,16 @@ import { useEffect, useRef, useState } from "react";
 interface EmojiFormProps {
   initialPrompt?: string;
 }
-const formAction = (...args) => {
-  console.log(args);
-};
+
 export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
   // const [formState, formAction] = useFormState(createEmoji);
 
   const submitRef = useRef<React.ElementRef<"button">>(null);
-  const [token, setToken] = useState("");
-
-  // useEffect(() => {
-  //   if (!formState) return;
-  // }, [formState]);
 
   return (
     <form
       method="POST"
-      action="https://stickerideas.co/api/prompt"
+      action={"https://stickerideas.co/n/"}
       className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg"
     >
       <input
