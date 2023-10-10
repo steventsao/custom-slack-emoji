@@ -38,7 +38,7 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
         type="submit"
         className="h-8 w-8 items-center justify-center rounded-lg text-white outline-0 ring-0 hover:bg-white/25 focus:bg-white/25"
       >
-        Ok
+        OK
       </button>
     </form>
   );
