@@ -19,7 +19,7 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
   // }, [formState]);
 
   return (
-    <form className="mb-10 flex h-fit w-full flex-row items-center rounded-xl bg-black px-1 shadow-lg">
+    <form className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg">
       <input
         defaultValue={initialPrompt}
         type="text"
@@ -33,14 +33,13 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
         placeholder="cat"
         className="h-10 w-full resize-none bg-transparent px-2 py-2.5 font-mono text-sm text-white outline-none ring-0 transition-all duration-300 placeholder:text-gray-400"
       />
-      <input
-        aria-hidden
+      <button
+        ref={submitRef}
         type="submit"
-        name="token"
-        value={token}
-        className="hidden"
-        readOnly
-      />
+        className="h-8 w-8 items-center justify-center rounded-lg text-white outline-0 ring-0 hover:bg-white/25 focus:bg-white/25"
+      >
+        Ok
+      </button>
     </form>
   );
 }
