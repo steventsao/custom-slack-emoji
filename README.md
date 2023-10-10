@@ -4,6 +4,8 @@ This example shows how to create an image gallery site using Next.js, [Cloudinar
 
 ## Log
 
+`useRouter` vs. `redirect`
+
 This is stuck again at what it's trying to be?
 
 - a generator of emojis poor in quality
