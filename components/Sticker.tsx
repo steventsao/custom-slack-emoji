@@ -1,41 +1,19 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
 import type { StickerProps } from "utils/types";
 
-export default function Sticker({
-  public_id,
-  format,
-  blurDataUrl,
-  onStickerToggle,
-}: StickerProps) {
-  const [mask, setMask] = useState(false);
-  const toggleMask = () => {
-    setMask(!mask);
-  };
+const DEFAULT_DIMENSION = 32;
+export default function Sticker({ public_id, format }: StickerProps) {
   const imageUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_32/${public_id}.${format}`;
   return (
     <div>
       <Image
-        onClick={() => {
-          onStickerToggle({ imageUrl, public_id });
-          toggleMask();
-        }}
+        onClick={() => {}}
         alt="sticker photo"
-        className={
-          (mask ? "brightness-0 invert " : "") +
-          "transform cursor-pointer rounded-lg transition will-change-auto group-hover:brightness-110"
-        }
-        style={{
-          transform: `translate3d(0, 0, 0)`,
-        }}
+        className="cursor-pointer rounded-lg transition will-change-auto group-hover:brightness-110"
         src={imageUrl}
-        width={32}
-        height={32}
-        sizes="(max-width: 640px) 50vw,
-      (max-width: 1280px) 25vw,
-      (max-width: 1536px) 25vw,
-      20vw"
+        width={DEFAULT_DIMENSION}
+        height={DEFAULT_DIMENSION}
       />
     </div>
   );

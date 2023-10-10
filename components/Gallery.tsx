@@ -40,37 +40,6 @@ export function Gallery({ images }: { images: ImageProps[] }) {
           // </Link>
         ))}
       </div>
-      <div className="fixed bottom-0 left-0 right-0 mx-0 flex w-full flex-wrap rounded-t-lg bg-yellow-200 p-2">
-        {selectedStickers.length === 0 && (
-          <p className="align-center flex w-full justify-center text-center">
-            Tap a sticker to start building your sheet!
-          </p>
-        )}
-        {selectedStickers.map((stickerAction) => (
-          <Image
-            key={stickerAction.public_id}
-            alt="sticker photo"
-            className={
-              "transform cursor-pointer rounded-lg transition will-change-auto group-hover:brightness-110"
-            }
-            style={{
-              transform: `translate3d(0, 0, 0)`,
-            }}
-            // placeholder="blur"
-            src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_70/${stickerAction.public_id}.png`}
-            width={70}
-            height={70}
-            sizes="(max-width: 640px) 50vw"
-          />
-        ))}
-        {selectedStickers.length ? (
-          <div className="flex w-full justify-center">
-            <button className="btn bg-sky-500 px-3 py-1 text-white hover:bg-sky-400">
-              Design layout
-            </button>
-          </div>
-        ) : null}
-      </div>
     </>
   );
 }

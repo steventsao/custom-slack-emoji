@@ -56,20 +56,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-amber-50 antialiased">
-        <NavigationMenu className="mx-5 font-bold">
-          <NavigationMenuList>
-            {navigationItems.map((item, key) => (
-              <NavigationMenuItem key={key}>
-                <Link href={item.path} legacyBehavior passHref>
-                  <NavigationMenuLink className="text-xl">
-                    {item.title}
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-        <main className="mx-auto max-w-[1960px] p-4">{children}</main>
+        <header className="sticky top-0 z-20 mx-auto flex h-14 w-full max-w-5xl flex-row flex-nowrap items-stretch justify-between px-4 py-3 duration-1000 ease-in-out animate-in fade-in slide-in-from-top-4 sm:px-6">
+          sticker ideas
+        </header>
+
+        <main className="mx-auto w-full max-w-5xl p-4">{children}</main>
         <footer className="p-6 text-center sm:p-12">stickerideas.co</footer>
         <Analytics />
       </body>
