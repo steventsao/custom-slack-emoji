@@ -60,7 +60,7 @@ export default function EmojiInput({ loading, initialPrompt }: EmojiFormProps) {
       </form>
 
       {loading || userloading ? (
-        <p className="bg-yellow-200 p-4">
+        <p className="mb-3 bg-yellow-200 p-4">
           Generating sticker, please refresh the page in a few seconds;
         </p>
       ) : (
