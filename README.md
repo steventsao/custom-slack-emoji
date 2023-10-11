@@ -1,7 +1,7 @@
 ## References
 
-- Cloudinary API: https://cloudinary.com/documentation/transformation_reference
-- https://github.com/danielgatis/rembg
+- Cloudinary for image transformation
+- Replicate for hosted models
 
 ## Credit
 
