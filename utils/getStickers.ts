@@ -39,7 +39,7 @@ export async function getStickers(
       width: "32",
       public_id: result.public_id,
       format: result.format,
-      prompt: result.prompt.toLowerCase().replaceAll(" ", "-"),
+      prompt: `:${result.prompt.toLowerCase().replaceAll(" ", "")}`,
     });
     i++;
   }
