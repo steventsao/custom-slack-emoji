@@ -5,4 +5,4 @@
 
 ## Credit
 
-- https://emojis.sh/ for use case. The previous iteration for stickerideas.co was to make custom stickers in print
+- https://emojis.sh/ for use case. The last iteration for stickerideas.co was to make custom stickers in print.
