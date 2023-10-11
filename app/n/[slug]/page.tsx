@@ -18,7 +18,7 @@ export default async function NewSticker(props) {
   return (
     <>
       <EmojiInput loading={loading} />
-      <p>{userPrompt}</p>
+      {loading ? <p className="bg-yellow-200 p-4">{userPrompt}</p> : ""}
     </>
   );
 }
