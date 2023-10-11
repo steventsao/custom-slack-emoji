@@ -9,10 +9,11 @@ import { sql } from "@vercel/postgres";
 export default async function NewSticker(props) {
   const sticker =
     await sql`select name from "Prompt" where "vanityId" = ${props.params.slug}`;
-  console.log(sticker.rows[0]);
+  const userPrompt = sticker.rows[0] ? "" : `Generating ${props.params.slug}`;
   return (
     <>
       <EmojiInput />
+      <p>{userPrompt}</p>
     </>
   );
 }
