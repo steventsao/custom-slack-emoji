@@ -6,9 +6,10 @@ import { formServerAction } from "utils/formAction";
 
 interface EmojiFormProps {
   initialPrompt?: string;
+  loading?: boolean;
 }
 
-export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
+export default function EmojiInput({ loading, initialPrompt }: EmojiFormProps) {
   // const [formState, formAction] = useFormState(createEmoji);
   const router = useRouter();
 
@@ -37,6 +38,7 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
       className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg"
     >
       <input
+        {...(loading ? { disabled: true } : {})}
         defaultValue={initialPrompt}
         type="text"
         name="prompt"

@@ -7,7 +7,7 @@ export async function getStickers(
   nextCursor?: string
 ): Promise<StickersResponse> {
   const data =
-    await sql`SELECT "CloudinaryImage"."publicId", "Prompt".name from "CloudinaryImage" inner join "Sticker" on "CloudinaryImage"."stickerId" = "Sticker".id inner join "Prompt" on "Sticker"."promptId" = "Prompt".id`;
+    await sql`SELECT "CloudinaryImage"."publicId", "Prompt".name from "CloudinaryImage" inner join "Sticker" on "CloudinaryImage"."stickerId" = "Sticker".id inner join "Prompt" on "Sticker"."promptId" = "Prompt".id order by "CloudinaryImage"."createdAt" desc`;
   const dbImages = data.rows.map((image) => {
     return {
       id: 0,
