@@ -6,6 +6,8 @@ import { sql } from "@vercel/postgres";
  * @returns
  */
 
+export const fetchCache = "force-no-store";
+
 export default async function NewSticker(props) {
   const sticker =
     await sql`select name from "Prompt" where "vanityId" = ${props.params.slug}`;
