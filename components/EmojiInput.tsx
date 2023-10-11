@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import { formServerAction } from "utils/formAction";
 
 interface EmojiFormProps {
   initialPrompt?: string;
@@ -26,10 +27,12 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
     });
     // router.push("/n/" + formData.get("prompt"));
   };
+
   return (
     <form
+      action={formServerAction}
       ref={formRef}
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg"
     >
       <input

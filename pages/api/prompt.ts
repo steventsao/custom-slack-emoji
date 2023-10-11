@@ -4,6 +4,7 @@ import formidable from "formidable";
 import { NextApiRequest, NextApiResponse } from "next";
 import Replicate from "replicate";
 import { PrismaClient } from "@prisma/client";
+import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
 const replicate = new Replicate({
@@ -23,8 +24,8 @@ export default async function handler(
 ) {
   const form = formidable({});
   const [fields] = await form.parse(req);
-  const template = `A TOK emoji of an ${fields.prompt}`;
-  // console.log(prompt);
+  const template = `A TOK emoji of an ${fields.prompt[0]}`;
+  console.log(fields.prompt[0], fields.vanity_id);
 
   const output = await replicate.run(replicateModel, {
     input: {
@@ -52,6 +53,7 @@ export default async function handler(
     data: {
       // Store user prompt instead
       name: fields.prompt[0] || "No prompt",
+      vanityId: fields.vanity_id[0] || "No vanity id",
       stickers: {
         create: {
           imageUrl: backgroundRemovedImageUrl,
