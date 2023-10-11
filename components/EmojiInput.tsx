@@ -30,6 +30,7 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
 
   return (
     <form
+      // @ts-ignore
       action={formServerAction}
       ref={formRef}
       // onSubmit={handleSubmit}
