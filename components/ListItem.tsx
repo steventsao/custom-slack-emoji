@@ -1,6 +1,6 @@
 "use client";
 import { NavigationMenuLink } from "./ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { cn } from "../utils/tailwind";
 import React from "react";
 
 const ListItem = React.forwardRef<
