@@ -59,7 +59,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="bg-amber-50 antialiased">
-        <header className="sticky top-0 z-20 mx-auto flex h-14 w-full max-w-5xl flex-row flex-nowrap items-stretch justify-between px-4 py-3 duration-1000 ease-in-out animate-in fade-in slide-in-from-top-4 sm:px-6">
+        <header className="sticky top-0 z-20 mx-auto flex h-14 w-full max-w-5xl flex-row flex-nowrap items-stretch justify-between bg-amber-50 px-4 py-3 duration-1000 ease-in-out animate-in fade-in slide-in-from-top-4 sm:px-6">
           <Image alt="logo" src="/favicon.ico" width={32} height={32} />
           <a href="https://github.com/steventsao/stickerideas">github</a>
         </header>
