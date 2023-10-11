@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
 interface EmojiFormProps {
@@ -24,15 +24,12 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
       method: "POST",
       body: formData,
     });
-    router.push("/n/" + formData.get("prompt"));
-    console.log(e);
+    // router.push("/n/" + formData.get("prompt"));
   };
   return (
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      // action="/n/123"
-      // method="POST"
       className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg"
     >
       <input
@@ -50,7 +47,6 @@ export default function EmojiInput({ initialPrompt }: EmojiFormProps) {
       />
       <button
         ref={submitRef}
-        // onClick={handleClick}
         type="submit"
         className="h-8 w-8 items-center justify-center rounded-lg text-white outline-0 ring-0 hover:bg-white/25 focus:bg-white/25"
       >

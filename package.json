@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^1.40.0",
     "clsx": "^2.0.0",
+    "formidable": "^3.5.1",
     "framer-motion": "^7.6.4",
     "imagemin": "^8.0.1",
     "imagemin-jpegtran": "^7.0.0",
