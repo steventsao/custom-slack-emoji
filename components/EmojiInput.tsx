@@ -7,19 +7,20 @@ import { formServerAction } from "utils/formAction";
 interface EmojiFormProps {
   initialPrompt?: string;
   loading?: boolean;
+  placeholder?: string;
 }
 
-export default function EmojiInput({ loading, initialPrompt }: EmojiFormProps) {
+export default function EmojiInput({
+  placeholder,
+  loading,
+  initialPrompt,
+}: EmojiFormProps) {
   // const [formState, formAction] = useFormState(createEmoji);
   const router = useRouter();
   const [userloading, setuserLoading] = useState(false);
 
   const submitRef = useRef<React.ElementRef<"button">>(null);
   const formRef = useRef<React.ElementRef<"form">>(null);
-  const handleClick = (e) => {
-    // e.preventDefault();
-    console.log(formRef.current);
-  };
 
   return (
     <>
@@ -42,7 +43,7 @@ export default function EmojiInput({ loading, initialPrompt }: EmojiFormProps) {
               setuserLoading(true);
             }
           }}
-          placeholder="cat"
+          placeholder={placeholder || "cat"}
           className="h-10 w-full resize-none bg-transparent px-2 py-2.5 font-mono text-sm text-white outline-none ring-0 transition-all duration-300 placeholder:text-gray-400"
         />
         {!(loading || userloading) ? (

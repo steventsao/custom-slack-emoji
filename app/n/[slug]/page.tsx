@@ -15,5 +15,5 @@ export default async function NewSticker(props) {
   const userPrompt = sticker.rows[0]
     ? ""
     : `Generating ${props.params.slug}, please refresh the page in a few seconds`;
-  return <EmojiInput loading={loading} />;
+  return <EmojiInput loading={loading} placeholder={sticker.rows[0]?.name} />;
 }
