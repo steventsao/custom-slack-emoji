@@ -23,7 +23,7 @@ export default async function handler(
 ) {
   const form = formidable({});
   const [fields] = await form.parse(req);
-  const template = `A TOK emoji of ${fields.prompt}`;
+  const template = `A TOK emoji of an ${fields.prompt}`;
   // console.log(prompt);
 
   const output = await replicate.run(replicateModel, {
