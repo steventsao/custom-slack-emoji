@@ -11,6 +11,7 @@ export const formServerAction = async (formData) => {
   const res = fetch(process.env.VERCEL_API_HOSTNAME + "/api/prompt", {
     method: "POST",
     body: formData,
+    cache: "no-store",
   });
   // router.push("/n/" + formData.get("prompt"));
   redirect("/n/" + vanityId);
