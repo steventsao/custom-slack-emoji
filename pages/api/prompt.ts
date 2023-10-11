@@ -1,13 +1,9 @@
-import getRandomAdjectiveWithNoun from "../../utils/words-animals";
 import cloudinary from "../../utils/cloudinary";
-import { createCanvas, loadImage } from "canvas";
 
-import { NextRequest, NextResponse } from "next/server";
 import formidable from "formidable";
 import { NextApiRequest, NextApiResponse } from "next";
 import Replicate from "replicate";
 import { PrismaClient } from "@prisma/client";
-import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
 const replicate = new Replicate({
@@ -50,6 +46,17 @@ export default async function handler(
     })
     .then((result) => result)
     .catch((err) => console.log(err));
+  await prisma.prompt.create({
+    data: {
+      // Store user prompt instead
+      name: fields.prompt,
+      stickers: {
+        create: {
+          imageUrl: backgroundRemovedImageUrl,
+        },
+      },
+    },
+  });
   return res.status(200).send({
     output,
     prompt: template,
