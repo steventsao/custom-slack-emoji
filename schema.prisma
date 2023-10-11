@@ -15,17 +15,29 @@ model Theme {
 }
 
 model Sticker {
-    id          Int      @id @default(autoincrement())
-    name        String?
-    description String?
-    imageUrl    String
+    id              Int              @id @default(autoincrement())
+    name            String?
+    description     String?
+    imageUrl        String
     // userId      Int
     // user        User    @relation(fields: [userId], references: [id])
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    labels      Label[]
-    prompt      Prompt?  @relation(fields: [promptId], references: [id])
-    promptId    Int?
+    createdAt       DateTime         @default(now())
+    updatedAt       DateTime         @updatedAt
+    labels          Label[]
+    prompt          Prompt?          @relation(fields: [promptId], references: [id])
+    promptId        Int?
+    cloudinaryImage CloudinaryImage?
+}
+
+model CloudinaryImage {
+    id        Int      @id @default(autoincrement())
+    publicId  String?
+    sticker   Sticker  @relation(fields: [stickerId], references: [id])
+    stickerId Int      @unique
+    // userId      Int
+    // user        User    @relation(fields: [userId], references: [id])
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model LLMModel {

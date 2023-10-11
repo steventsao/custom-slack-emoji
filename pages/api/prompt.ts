@@ -46,7 +46,8 @@ export default async function handler(
     })
     .then((result) => result)
     .catch((err) => console.log(err));
-  console.log("CREATING ENTRY: ", fields.prompt);
+  console.log("CREATING ENTRY: ", fields.prompt, result);
+
   await prisma.prompt.create({
     data: {
       // Store user prompt instead
@@ -54,6 +55,11 @@ export default async function handler(
       stickers: {
         create: {
           imageUrl: backgroundRemovedImageUrl,
+          cloudinaryImage: {
+            create: {
+              publicId: result?.public_id,
+            },
+          },
         },
       },
     },
