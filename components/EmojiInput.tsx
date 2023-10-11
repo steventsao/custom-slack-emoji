@@ -62,7 +62,7 @@ export default function EmojiInput({
 
       {loading || userloading ? (
         <p className="mb-3 bg-yellow-200 p-4">
-          Generating sticker, please refresh the page in a few seconds;
+          Generating sticker, please refresh the page in a few seconds...
         </p>
       ) : (
         ""
