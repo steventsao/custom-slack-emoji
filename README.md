@@ -9,10 +9,10 @@ Replicate: Employed for hosting models.
 
 ## Credit
 
-[Emojis.sh](https://emojis.sh/) gave me insights into use-cases. Also:
+[Emojis.sh](https://emojis.sh/) gave me insights into use-cases, and also techniques like:
 
 - Utilizing server-side form actions.
-- Input component
+- Rate-limiting with jwt
 
 ## Iterations
 
