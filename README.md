@@ -1,10 +1,15 @@
-## References
+## Stack
 
-- Cloudinary for image transformation
-- Replicate for hosted models
+Cloudinary: Utilized for image transformation.
+Replicate: Employed for hosting models.
 
 ## Credit
 
-- https://emojis.sh/ for use case. The last iteration for stickerideas.co was to make custom stickers in print. I've also learned a bunch of tricks like
-  - using [form action server-side](https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations)
-  - input component
+[Emojis.sh](https://emojis.sh/) gave me insights into use-cases. Also:
+
+- Utilizing server-side form actions.
+- Input component
+
+## Iterations
+
+I tried to generate custom stickers with the generated images, but the quality did not satisfy the use case.
