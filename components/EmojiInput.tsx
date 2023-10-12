@@ -43,7 +43,7 @@ export default function EmojiInput({
               setuserLoading(true);
             }
           }}
-          placeholder={placeholder || "cat"}
+          placeholder={placeholder || "slow lama"}
           className="h-10 w-full resize-none bg-transparent px-2 py-2.5 font-mono text-sm text-white outline-none ring-0 transition-all duration-300 placeholder:text-gray-400"
         />
         {!(loading || userloading) ? (
