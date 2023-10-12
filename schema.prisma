@@ -32,7 +32,7 @@ model Sticker {
 model CloudinaryImage {
     id        Int      @id @default(autoincrement())
     publicId  String?
-    sticker   Sticker  @relation(fields: [stickerId], references: [id])
+    sticker   Sticker  @relation(fields: [stickerId], references: [id], onDelete: Cascade)
     stickerId Int      @unique
     // userId      Int
     // user        User    @relation(fields: [userId], references: [id])
