@@ -5,7 +5,7 @@ Generate stickers for Slack
 ## Stack
 
 Cloudinary: Utilized for image transformation.
-Replicate: Employed for hosting models.
+Replicate: for hosting models.
 
 ## Credit
 
