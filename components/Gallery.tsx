@@ -6,7 +6,7 @@ export async function Gallery() {
 
   return (
     <>
-      <div className="gap-4 sm:columns-2 xl:columns-4">
+      <div className="xs:columns-2 gap-4 xl:columns-3">
         {images.map(({ prompt, id, public_id, format, blurDataUrl }) => (
           <Sticker
             key={id}
