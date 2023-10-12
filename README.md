@@ -1,3 +1,7 @@
+## About
+
+Generate stickers for Slack
+
 ## Stack
 
 Cloudinary: Utilized for image transformation.
