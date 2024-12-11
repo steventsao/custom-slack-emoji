@@ -1,10 +1,9 @@
 import cloudinary from "../../utils/cloudinary";
 
 import formidable from "formidable";
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next/types";
 import Replicate from "replicate";
 import { PrismaClient } from "@prisma/client";
-import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
 const replicate = new Replicate({
