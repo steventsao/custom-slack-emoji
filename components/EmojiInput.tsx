@@ -15,7 +15,6 @@ export default function EmojiInput({
   loading,
   initialPrompt,
 }: EmojiFormProps) {
-  // const [formState, formAction] = useFormState(createEmoji);
   const router = useRouter();
   const [userloading, setuserLoading] = useState(false);
 
@@ -28,7 +27,6 @@ export default function EmojiInput({
         // @ts-ignore
         action={formServerAction}
         ref={formRef}
-        // onSubmit={handleSubmit}
         className="mb-10 flex h-fit w-full flex-row items-center space-x-2 rounded-xl bg-black px-1 shadow-lg"
       >
         <input
@@ -61,12 +59,14 @@ export default function EmojiInput({
       </form>
 
       {loading || userloading ? (
-        <p className="mb-3 bg-yellow-200 p-4">
-          Generating sticker, please refresh the page in a few seconds...
-        </p>
+        <div className="mb-3 flex items-center justify-center bg-yellow-200 p-4">
+          <div className="loader"></div>
+          <p className="ml-2">Generating sticker, please refresh the page in a few seconds...</p>
+        </div>
       ) : (
         ""
       )}
     </>
   );
 }
+

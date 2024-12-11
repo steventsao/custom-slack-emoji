@@ -1,5 +1,4 @@
 import Sticker from "@/components/Sticker";
-import { getStickers } from "utils/getStickers";
 
 type GalleryProps = {
   images: any[];
