@@ -1,9 +1,12 @@
 import Sticker from "@/components/Sticker";
 import { getStickers } from "utils/getStickers";
 
-export async function Gallery() {
-  const { images, nextCursor } = await getStickers();
+type GalleryProps = {
+  images: any[];
+  nextCursor: string;
+};
 
+export function Gallery({ images, nextCursor }: GalleryProps) {
   return (
     <>
       <div className="xs:columns-2 gap-4 xl:columns-3">

@@ -3,12 +3,14 @@ import { Suspense } from "react";
 import { Gallery } from "@/components/Gallery";
 import { Analytics } from "@vercel/analytics/react";
 import Image from "next/image";
+import { getStickers } from "utils/getStickers";
 
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { images, nextCursor } = await getStickers();
   return (
     <html lang="en">
       <head>
@@ -55,8 +57,7 @@ export default async function RootLayout({
         <main className="mx-auto w-full max-w-5xl p-4">
           {children}
           <Suspense fallback={<div>loading...</div>}>
-            {/* @ts-expect-error */}
-            <Gallery />
+            <Gallery images={images} nextCursor={nextCursor} />
           </Suspense>
         </main>
         <footer className="p-6 text-center sm:p-12">
