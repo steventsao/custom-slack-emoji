@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/react";
 import Image from "next/image";
 import { getStickers } from "utils/getStickers";
 
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: {
