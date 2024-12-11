@@ -52,7 +52,7 @@ export default function Logo() {
       ></path>
       <line
         stroke="currentColor"
-        strokeWidth="1.3"
+        stroke-width="1.3"
         x1="132.6"
         x2="171.6"
         y1="25.35"
@@ -60,7 +60,7 @@ export default function Logo() {
       ></line>
       <line
         stroke="currentColor"
-        strokeWidth="1.3"
+        stroke-width="1.3"
         x1="132.6"
         x2="171.6"
         y1="0.65"

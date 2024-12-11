@@ -1,6 +1,5 @@
 import getRandomAdjectiveWithNoun from "../../../utils/words-animals";
 import cloudinary from "../../../utils/cloudinary";
-import { createCanvas, loadImage } from "canvas";
 import { NextRequest, NextResponse } from "next/server";
 import { NextApiResponse } from "next";
 import Replicate from "replicate";

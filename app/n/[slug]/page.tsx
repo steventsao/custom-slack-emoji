@@ -9,8 +9,9 @@ import { sql } from "@vercel/postgres";
 export const fetchCache = "force-no-store";
 
 export default async function NewSticker(props) {
+  const { slug } = await props.params;
   const sticker =
-    await sql`select name from "Prompt" where "vanityId" = ${props.params.slug}`;
+    await sql`select name from "Prompt" where "vanityId" = ${slug}`;
   const loading = !sticker.rows[0];
   return <EmojiInput loading={loading} placeholder={sticker.rows[0]?.name} />;
 }
