@@ -1,5 +1,5 @@
 import EmojiInput from "@/components/EmojiInput";
-import type Metadata from "next";
+import type { Metadata } from "next";
 
 export const fetchCache = "force-no-store";
 export const dynamic = "force-dynamic";

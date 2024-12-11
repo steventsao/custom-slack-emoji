@@ -3,35 +3,7 @@ import { Suspense } from "react";
 import { Gallery } from "@/components/Gallery";
 import { Analytics } from "@vercel/analytics/react";
 import Image from "next/image";
-import ListItem from "@/components/ListItem";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuContent,
-  NavigationMenuTrigger,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
-import Link from "next/link";
 
-const navigationItems = [
-  {
-    path: "/",
-    title: "Home",
-  },
-  {
-    path: "/themes/dog",
-    title: "#dog",
-  },
-  {
-    path: "/themes/desi",
-    title: "#desitruck",
-  },
-  {
-    path: "/themes/emoji",
-    title: "#emoji",
-  },
-];
 export default async function RootLayout({
   children,
 }: {
@@ -87,7 +59,9 @@ export default async function RootLayout({
             <Gallery />
           </Suspense>
         </main>
-        <footer className="p-6 text-center sm:p-12">stickerideas.co</footer>
+        <footer className="p-6 text-center sm:p-12">
+          <a href="https://bogeybot.com">bogeybot.com</a>
+        </footer>
         <Analytics />
       </body>
     </html>
