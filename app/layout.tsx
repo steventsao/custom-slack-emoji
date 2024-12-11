@@ -32,8 +32,9 @@ export default async function RootLayout({
       </head>
       <body className="bg-amber-50 antialiased">
         <header className="sticky top-0 z-20 mx-auto flex h-14 w-full max-w-5xl flex-row flex-nowrap items-stretch justify-between bg-amber-50 px-4 py-3 duration-1000 ease-in-out animate-in fade-in slide-in-from-top-4 sm:px-6">
-          <Link href="/">
+          <Link href="/" className="flex flex-row items-center gap-2">
             <Image alt="logo" src="/favicon.ico" width={32} height={32} />
+            <h1 className="text-2xl font-bold">:custom-slack-emoji</h1>
           </Link>
           <GithubIcon href="https://github.com/steventsao/custom-slack-emoji" />
         </header>

@@ -1,6 +1,6 @@
 export default function GithubIcon({ href }: { href: string }) {
     return (
-        <a href={href}>
+        <a href={href} className="flex justify-end flex-col">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
