@@ -2,10 +2,21 @@ import cloudinary from "../utils/cloudinary";
 import getBase64ImageUrl from "../utils/generateBlurPlaceholder";
 import type { ImageProps, StickersResponse } from "../utils/types";
 import { sql } from "@vercel/postgres";
+import { kv } from "@vercel/kv";
+
+const STICKERS_CACHE_KEY = 'recent_stickers';
 
 export async function getStickers(
-  nextCursor?: string
+  nextCursor?: string,
+  useCache?: boolean
 ): Promise<StickersResponse> {
+  // Try to get from cache first
+  const cachedData = await kv.get<StickersResponse>(STICKERS_CACHE_KEY);
+  if (cachedData && useCache) {
+    return cachedData;
+  }
+
+  // If no cache, proceed with original logic
   const size = 15;
   const data =
     await sql`
@@ -62,5 +73,10 @@ export async function getStickers(
     // reducedResults[i].rotation = randomRotation;
   }
 
-  return { images: reducedResults, nextCursor: results.next_cursor };
+  const response = { images: reducedResults, nextCursor: results.next_cursor };
+
+  // Store in cache
+  await kv.set(STICKERS_CACHE_KEY, response, { ex: 35 }); // 35 seconds TTL
+
+  return response;
 }

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page({ params, searchParams }) {
-  const { images, nextCursor } = await getStickers();
+  const { images, nextCursor } = await getStickers(undefined, true);
   return (
     <>
       <EmojiInput />
