@@ -27,6 +27,8 @@ model Sticker {
     prompt          Prompt?          @relation(fields: [promptId], references: [id])
     promptId        Int?
     cloudinaryImage CloudinaryImage?
+
+    @@index([promptId])
 }
 
 model CloudinaryImage {
@@ -40,7 +42,7 @@ model CloudinaryImage {
     updatedAt DateTime @updatedAt
 
     @@index([stickerId])
-    @@index([createdAt])
+    @@index([createdAt(sort: Desc)])
 }
 
 model LLMModel {
