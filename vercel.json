@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/cron/update-stickers",
-      "schedule": "* * * * *"
+      "schedule": "*/2 * * * *"
     }
   ]
 }
