@@ -3,9 +3,10 @@ import Sticker from "@/components/Sticker";
 type GalleryProps = {
   images: any[];
   nextCursor: string;
+  useCache?: boolean;
 };
 
-export function Gallery({ images, nextCursor }: GalleryProps) {
+export function Gallery({ images, nextCursor, useCache = false }: GalleryProps) {
   return (
     <>
       <div className="xs:columns-2 gap-4 xl:columns-3">

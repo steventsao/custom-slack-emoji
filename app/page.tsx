@@ -18,7 +18,7 @@ export default async function Page({ params, searchParams }) {
       <EmojiInput />
 
       <Suspense fallback={<div>loading...</div>}>
-        <Gallery images={images} nextCursor={nextCursor} />
+        <Gallery images={images} nextCursor={nextCursor} useCache={true} />
       </Suspense>
     </>
   );
