@@ -6,12 +6,13 @@ import { sql } from "@vercel/postgres";
 export async function getStickers(
   nextCursor?: string
 ): Promise<StickersResponse> {
+  const size = 15;
   const data =
     await sql`
       SELECT "CloudinaryImage"."publicId", "Prompt".name
       from "CloudinaryImage" inner join "Sticker" on "CloudinaryImage"."stickerId" = "Sticker".id
       inner join "Prompt" on "Sticker"."promptId" = "Prompt".id
-      order by "CloudinaryImage"."createdAt" desc limit 15
+      order by "CloudinaryImage"."createdAt" desc limit ${size}
     `;
   const dbImages = data.rows.map((image) => {
     return {
@@ -27,11 +28,11 @@ export async function getStickers(
   const builder = cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
     .sort_by("created_at", "desc")
-    .max_results(100);
+    .max_results(size);
 
-  if (nextCursor) {
-    builder.next_cursor(nextCursor);
-  }
+  // if (nextCursor) {
+  //   builder.next_cursor(nextCursor);
+  // }
 
   const results = await builder.execute();
   let reducedResults: ImageProps[] = [];
