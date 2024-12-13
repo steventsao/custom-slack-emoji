@@ -76,7 +76,7 @@ export async function getStickers(
   const response = { images: reducedResults, nextCursor: results.next_cursor };
 
   // Store in cache
-  await kv.set(STICKERS_CACHE_KEY, response, { ex: 35 }); // 35 seconds TTL
+  await kv.set(STICKERS_CACHE_KEY, response, { ex: 120 }); // 35 seconds TTL
 
   return response;
 }
