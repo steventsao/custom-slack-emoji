@@ -41,8 +41,8 @@ model CloudinaryImage {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
-    @@index([stickerId])
     @@index([createdAt(sort: Desc)])
+    @@index([stickerId])
 }
 
 model LLMModel {
