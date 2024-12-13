@@ -16,16 +16,24 @@ export default async function handler(req: NextRequest, res: NextApiResponse) {
         // Store in KV cache
         await kv.set(STICKERS_CACHE_KEY, stickersData, { ex: 35 }); // 35 seconds TTL
 
-        return NextResponse.json({
+        return res.status(200).send({
             success: true,
             message: 'Stickers cache updated',
             timestamp: new Date().toISOString()
         });
+        // return NextResponse.json({
+        //     success: true,
+        //     message: 'Stickers cache updated',
+        //     timestamp: new Date().toISOString()
+        // });
     } catch (error) {
         console.error('Failed to update stickers cache:', error);
-        return NextResponse.json(
-            { error: 'Failed to update stickers cache' },
-            { status: 500 }
-        );
+        return res.status(500).send({
+            error: 'Failed to update stickers cache'
+        });
+        // return NextResponse.json(
+        //     { error: 'Failed to update stickers cache' },
+        //     { status: 500 }
+        // );
     }
 }
