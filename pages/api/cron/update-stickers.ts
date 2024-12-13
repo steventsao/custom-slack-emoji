@@ -7,7 +7,7 @@ const STICKERS_CACHE_KEY = 'recent_stickers';
 export const dynamic = 'force-dynamic'; // static by default, unless reading the request
 
 
-export async function GET(request: Request) {
+export default async function handler(request: Request) {
     try {
         // Get fresh data
         const stickersData = await getStickers();
