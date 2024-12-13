@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Gallery } from "@/components/Gallery";
 import { getStickers } from "utils/getStickers";
-// export const fetchCache = "force-no-store";
-// export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const dynamic = "force-dynamic";
 
 
 export const metadata: Metadata = {
