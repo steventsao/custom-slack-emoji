@@ -28,8 +28,3 @@ export async function GET(request: Request) {
         );
     }
 }
-
-// Vercel Cron configuration
-export const config = {
-    cron: '*/30 * * * * *' // Run every 30 seconds
-};
